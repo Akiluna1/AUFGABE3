@@ -3,11 +3,11 @@
 
 <head>
     <title> HFU POSTER</title>
-    <script src="js/aframe-v1.5.0.min.js"></script>
+    <script src="JS/aframe-v1.5.0.min.js"></script>
 </head>
 
 <body>
-    <script src="js/simple-ar.min.js" onload="onWasmLoaded();"></script>
+    <script src="JS/simple-ar.min.js" onload="onWasmLoaded();"></script>
     <a-scene>
         <a-entity simple-ar="src: assets/target2.png; minCutOffValue: 1; betaValue:0.1;">
             <a-entity id="snow"></a-entity>
@@ -29,7 +29,7 @@
         'MODELS/GLB/Pencil.glb'
       ];
 
-      const total = 30; // number of models to spawn
+      const total = 30; 
 
       for (let i = 0; i < total; i++) {
         const modelEntity = document.createElement('a-entity');
