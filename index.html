@@ -52,14 +52,11 @@
         modelEntity.setAttribute('position', `${startX} ${startY} ${startZ}`);
         modelEntity.setAttribute('scale', `${scaleNum} ${scaleNum} ${scaleNum}`);
 
-        // Rotate Book, Palette, and Pencil to face the camera
-        if (modelUrl.includes('Book.glb') || modelUrl.includes('Palette.glb') || modelUrl.includes('Pencil.glb')) {
-            modelEntity.setAttribute('rotation', '75 0 0'); 
-        }
-        // Rotate Headset to the left
-        if (modelUrl.includes('Headset.glb')) {
-            modelEntity.setAttribute('rotation', '0 -90 0'); 
-        }
+        // Apply a random rotation for all models
+        const rotX = Math.random() * 360;
+        const rotY = Math.random() * 360;
+        const rotZ = Math.random() * 360;
+        modelEntity.setAttribute('rotation', `${rotX} ${rotY} ${rotZ}`);
 
         const duration = 4000 + Math.random() * 3000;
 
