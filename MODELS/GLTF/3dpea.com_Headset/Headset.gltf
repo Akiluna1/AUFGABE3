@@ -1,0 +1,189 @@
+{
+    "asset": {
+        "version": "1.0",
+        "generator": "Open Asset Import Library (assimp v5.4.0)"
+    },
+    "accessors": {
+        "meshes[0]_accessor": {
+            "bufferView": "meshes[0]_view",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5126,
+            "count": 1193,
+            "type": "VEC3",
+            "max": [
+                32.638362884521484,
+                74.83723449707031,
+                31.938587188720703
+            ],
+            "min": [
+                -13.22065258026123,
+                -0.00023400000645779073,
+                -34.93227767944336
+            ]
+        },
+        "meshes[0]_accessor_0": {
+            "bufferView": "meshes[0]_view_0",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5126,
+            "count": 1193,
+            "type": "VEC3",
+            "max": [
+                1.0,
+                0.9945981502532959,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -0.9999518394470215,
+                -1.0
+            ]
+        },
+        "meshes[0]_accessor_1": {
+            "bufferView": "meshes[0]_view_1",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5126,
+            "count": 1193,
+            "type": "VEC2",
+            "max": [
+                0.7330179810523987,
+                0.6505069732666016
+            ],
+            "min": [
+                0.6073390245437622,
+                0.2635619640350342
+            ]
+        },
+        "meshes[0]_accessor_2": {
+            "bufferView": "meshes[0]_view_2",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 6732,
+            "type": "SCALAR",
+            "max": [
+                1192
+            ],
+            "min": [
+                0
+            ]
+        }
+    },
+    "buffers": {
+        "Headset_0": {
+            "byteLength": 51640,
+            "type": "arraybuffer",
+            "uri": "Headset_0.bin"
+        }
+    },
+    "bufferViews": {
+        "meshes[0]_view": {
+            "buffer": "Headset_0",
+            "byteOffset": 0,
+            "byteLength": 14316,
+            "target": 34962
+        },
+        "meshes[0]_view_0": {
+            "buffer": "Headset_0",
+            "byteOffset": 14316,
+            "byteLength": 14316,
+            "target": 34962
+        },
+        "meshes[0]_view_1": {
+            "buffer": "Headset_0",
+            "byteOffset": 28632,
+            "byteLength": 9544,
+            "target": 34962
+        },
+        "meshes[0]_view_2": {
+            "buffer": "Headset_0",
+            "byteOffset": 38176,
+            "byteLength": 13464,
+            "target": 34963
+        }
+    },
+    "images": {
+        "image": {
+            "uri": "textures/image_0.png"
+        }
+    },
+    "materials": {
+        "Mat": {
+            "values": {
+                "ambient": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "diffuse": "texture",
+                "specular": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "emission": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "shininess": 0.0
+            }
+        }
+    },
+    "meshes": {
+        "meshes[0]": {
+            "name": "",
+            "primitives": [
+                {
+                    "mode": 4,
+                    "material": "Mat",
+                    "indices": "meshes[0]_accessor_2",
+                    "attributes": {
+                        "POSITION": "meshes[0]_accessor",
+                        "NORMAL": "meshes[0]_accessor_0",
+                        "TEXCOORD_0": "meshes[0]_accessor_1"
+                    }
+                }
+            ]
+        }
+    },
+    "nodes": {
+        "Headset": {
+            "children": [
+                "High_End_Headset"
+            ]
+        },
+        "High_End_Headset": {
+            "meshes": [
+                "meshes[0]"
+            ]
+        }
+    },
+    "samplers": {
+        "sampler": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9729
+        }
+    },
+    "scenes": {
+        "defaultScene": {
+            "nodes": [
+                "Headset"
+            ]
+        }
+    },
+    "textures": {
+        "texture": {
+            "source": "image",
+            "sampler": "sampler"
+        }
+    },
+    "scene": "defaultScene"
+}

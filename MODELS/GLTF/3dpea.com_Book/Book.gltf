@@ -1,0 +1,305 @@
+{
+    "asset": {
+        "version": "1.0",
+        "generator": "Open Asset Import Library (assimp v5.4.0)"
+    },
+    "accessors": {
+        "meshes[0]_accessor": {
+            "bufferView": "meshes[0]_view",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5126,
+            "count": 80,
+            "type": "VEC3",
+            "max": [
+                0.44580599665641785,
+                0.056387998163700104,
+                0.463934987783432
+            ],
+            "min": [
+                -0.27215901017189026,
+                -0.07518599927425385,
+                -0.4181329905986786
+            ]
+        },
+        "meshes[0]_accessor_0": {
+            "bufferView": "meshes[0]_view_0",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5126,
+            "count": 80,
+            "type": "VEC3",
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                -1.0,
+                -1.0,
+                -1.0
+            ]
+        },
+        "meshes[0]_accessor_1": {
+            "bufferView": "meshes[0]_view_1",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5126,
+            "count": 80,
+            "type": "VEC2",
+            "max": [
+                0.9135000109672546,
+                0.9607999920845032
+            ],
+            "min": [
+                0.053199999034404755,
+                0.5309000015258789
+            ]
+        },
+        "meshes[0]_accessor_2": {
+            "bufferView": "meshes[0]_view_2",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 180,
+            "type": "SCALAR",
+            "max": [
+                79
+            ],
+            "min": [
+                0
+            ]
+        },
+        "meshes[1]_accessor": {
+            "bufferView": "meshes[1]_view",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5126,
+            "count": 16,
+            "type": "VEC3",
+            "max": [
+                0.42482998967170715,
+                0.056387998163700104,
+                0.44281598925590515
+            ],
+            "min": [
+                -0.22728799283504486,
+                -0.047162000089883804,
+                -0.39701399207115173
+            ]
+        },
+        "meshes[1]_accessor_0": {
+            "bufferView": "meshes[1]_view_0",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5126,
+            "count": 16,
+            "type": "VEC3",
+            "max": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "min": [
+                0.0,
+                0.0,
+                -1.0
+            ]
+        },
+        "meshes[1]_accessor_1": {
+            "bufferView": "meshes[1]_view_1",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5126,
+            "count": 16,
+            "type": "VEC2",
+            "max": [
+                0.6765999794006348,
+                0.4140999913215637
+            ],
+            "min": [
+                0.29840001463890076,
+                0.035899996757507324
+            ]
+        },
+        "meshes[1]_accessor_2": {
+            "bufferView": "meshes[1]_view_2",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 24,
+            "type": "SCALAR",
+            "max": [
+                15
+            ],
+            "min": [
+                0
+            ]
+        }
+    },
+    "buffers": {
+        "Book_0": {
+            "byteLength": 3480,
+            "type": "arraybuffer",
+            "uri": "Book_0.bin"
+        }
+    },
+    "bufferViews": {
+        "meshes[0]_view": {
+            "buffer": "Book_0",
+            "byteOffset": 0,
+            "byteLength": 960,
+            "target": 34962
+        },
+        "meshes[0]_view_0": {
+            "buffer": "Book_0",
+            "byteOffset": 960,
+            "byteLength": 960,
+            "target": 34962
+        },
+        "meshes[0]_view_1": {
+            "buffer": "Book_0",
+            "byteOffset": 1920,
+            "byteLength": 640,
+            "target": 34962
+        },
+        "meshes[0]_view_2": {
+            "buffer": "Book_0",
+            "byteOffset": 2560,
+            "byteLength": 360,
+            "target": 34963
+        },
+        "meshes[1]_view": {
+            "buffer": "Book_0",
+            "byteOffset": 2920,
+            "byteLength": 192,
+            "target": 34962
+        },
+        "meshes[1]_view_0": {
+            "buffer": "Book_0",
+            "byteOffset": 3112,
+            "byteLength": 192,
+            "target": 34962
+        },
+        "meshes[1]_view_1": {
+            "buffer": "Book_0",
+            "byteOffset": 3304,
+            "byteLength": 128,
+            "target": 34962
+        },
+        "meshes[1]_view_2": {
+            "buffer": "Book_0",
+            "byteOffset": 3432,
+            "byteLength": 48,
+            "target": 34963
+        }
+    },
+    "images": {
+        "image": {
+            "uri": "textures/image_0.png"
+        }
+    },
+    "materials": {
+        "Material.009": {
+            "values": {
+                "ambient": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "diffuse": "texture",
+                "specular": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "emission": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "shininess": 9.231069564819336
+            }
+        }
+    },
+    "meshes": {
+        "meshes[0]": {
+            "name": "",
+            "primitives": [
+                {
+                    "mode": 4,
+                    "material": "Material.009",
+                    "indices": "meshes[0]_accessor_2",
+                    "attributes": {
+                        "POSITION": "meshes[0]_accessor",
+                        "NORMAL": "meshes[0]_accessor_0",
+                        "TEXCOORD_0": "meshes[0]_accessor_1"
+                    }
+                }
+            ]
+        },
+        "meshes[1]": {
+            "name": "",
+            "primitives": [
+                {
+                    "mode": 4,
+                    "material": "Material.009",
+                    "indices": "meshes[1]_accessor_2",
+                    "attributes": {
+                        "POSITION": "meshes[1]_accessor",
+                        "NORMAL": "meshes[1]_accessor_0",
+                        "TEXCOORD_0": "meshes[1]_accessor_1"
+                    }
+                }
+            ]
+        }
+    },
+    "nodes": {
+        "Book": {
+            "children": [
+                "Cube007_Cube006"
+            ]
+        },
+        "Cube007_Cube006": {
+            "children": [
+                "Cube007_Cube006-Mesh",
+                "Cube007_Cube006-Mesh_1"
+            ]
+        },
+        "Cube007_Cube006-Mesh": {
+            "meshes": [
+                "meshes[0]"
+            ]
+        },
+        "Cube007_Cube006-Mesh_1": {
+            "meshes": [
+                "meshes[1]"
+            ]
+        }
+    },
+    "samplers": {
+        "sampler": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9729
+        }
+    },
+    "scenes": {
+        "defaultScene": {
+            "nodes": [
+                "Book"
+            ]
+        }
+    },
+    "textures": {
+        "texture": {
+            "source": "image",
+            "sampler": "sampler"
+        }
+    },
+    "scene": "defaultScene"
+}

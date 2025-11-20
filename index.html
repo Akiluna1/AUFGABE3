@@ -1,99 +1,92 @@
 <!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <title>HFU POSTER</title>
-    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<html>
 
-  </head>
+<head>
+    <title> HFU POSTER</title>
+    <script src="js/aframe-v1.5.0.min.js"></script>
+</head>
 
-  <body>
-    <a-scene embedded arjs="sourceType: webcam;" vr-mode-ui="enabled: false">
-        <a-assets>
-            <a-asset-item id="bookModel" src="MODELS/Book.glb"></a-asset-item>
-            <a-asset-item id="cameraModel" src="MODELS/Camera.glb"></a-asset-item>
-            <a-asset-item id="headsetModel" src="MODELS/Headset.glb"></a-asset-item>
-            <a-asset-item id="laptopModel" src="MODELS/Laptop.glb"></a-asset-item>
-            <a-asset-item id="microphoneModel" src="MODELS/Microphone.glb"></a-asset-item>
-            <a-asset-item id="paletteModel" src="MODELS/Palette.glb"></a-asset-item>
-            <a-asset-item id="pencilModel" src="MODELS/Pencil.glb"></a-asset-item>
-        </a-assets>
-
-        <a-marker type="pattern" url="pattern/pattern-user.patt" id="marker">
-            <a-text value="Happy Christmas!" position="-1 4 0" color="white"></a-text>
-        </a-marker>
-
-        <a-entity camera></a-entity>
+<body>
+    <script src="js/simple-ar.min.js" onload="onWasmLoaded();"></script>
+    <a-scene>
+        <a-entity simple-ar="src: assets/target2.png; minCutOffValue: 1; betaValue:0.1;">
+            <a-entity id="snow"></a-entity>
+        </a-entity>
+        <a-camera position="0 0 0"></a-camera>
     </a-scene>
 
+    
     <script>
-        const models = [
-            '#bookModel',
-            '#cameraModel',
-            '#headsetModel',
-            '#laptopModel',
-            '#microphoneModel',
-            '#paletteModel',
-            '#pencilModel'
-        ];
+      const targetObject = document.querySelector('#snow');
 
-        const marker = document.querySelector('#marker');
+      const models = [
+        'MODELS/GLB/Book.glb',
+        'MODELS/GLB/Camera.glb',
+        'MODELS/GLB/Headset.glb',
+        'MODELS/GLB/Laptop.glb',
+        'MODELS/GLB/Microphone.glb',
+        'MODELS/GLB/Palette.glb',
+        'MODELS/GLB/Pencil.glb'
+      ];
 
-        function randomPosition() {
-            const x = (Math.random() - 0.5) * 2; // enger an Marker
-            const y = Math.random() * 1.5 + 0.2;
-            const z = (Math.random() - 0.5) * 2;
-            return { x, y, z };
+      const total = 30; // number of models to spawn
+
+      for (let i = 0; i < total; i++) {
+        const modelEntity = document.createElement('a-entity');
+        const modelUrl = models[i % models.length];
+
+        let scaleNum;
+        if (modelUrl.includes('Book.glb')) scaleNum = 0.6;
+        else if (modelUrl.includes('Palette.glb')) scaleNum = 0.6;
+        else if (modelUrl.includes('Pencil.glb')) scaleNum = 0.20;
+        else if (modelUrl.includes('Headset.glb')) scaleNum = 0.01;
+        else if (modelUrl.includes('Laptop.glb')) scaleNum = 0.20;
+        else scaleNum = (Math.random() * 0.12 + 0.05).toFixed(2); // default for other models
+
+        const startX = (Math.random() - 0.5) * 8;
+        const startY = Math.random() * 6 + 2;
+        const startZ = (Math.random() - 0.5) * 8;
+        const endY = -10;
+
+        modelEntity.setAttribute('gltf-model', modelUrl);
+        modelEntity.setAttribute('position', `${startX} ${startY} ${startZ}`);
+        modelEntity.setAttribute('scale', `${scaleNum} ${scaleNum} ${scaleNum}`);
+
+        // Rotate Book, Palette, and Pencil to face the camera
+        if (modelUrl.includes('Book.glb') || modelUrl.includes('Palette.glb') || modelUrl.includes('Pencil.glb')) {
+            modelEntity.setAttribute('rotation', '75 0 0'); 
+        }
+        // Rotate Headset to the left
+        if (modelUrl.includes('Headset.glb')) {
+            modelEntity.setAttribute('rotation', '0 -90 0'); 
         }
 
-        function randomRotation() {
-            const x = Math.random() * 360;
-            const y = Math.random() * 360;
-            const z = Math.random() * 360;
-            return { x, y, z };
-        }
+        const duration = 4000 + Math.random() * 3000;
 
-        for (let i = 0; i < 10; i++) {
-            const modelId = models[Math.floor(Math.random() * models.length)];
-            const entity = document.createElement('a-entity');
+        modelEntity.setAttribute('animation__fall', {
+          property: 'position',
+          from: `${startX} ${startY} ${startZ}`,
+          to: `${startX} ${endY} ${startZ}`,
+          dur: duration,
+          easing: 'linear',
+          loop: true
+        });
 
-            entity.setAttribute('gltf-model', modelId);
+        modelEntity.addEventListener('animationloop', () => {
+          const newX = (Math.random() - 0.5) * 8;
+          const newY = Math.random() * 6 + 2;
+          const newZ = (Math.random() - 0.5) * 8;
 
-            // zufällige Skalierung
-            const scale = (Math.random() * 0.4 + 0.2).toFixed(2);
-            entity.setAttribute('scale', `${scale} ${scale} ${scale}`);
+          modelEntity.setAttribute('animation__fall', {
+            from: `${newX} ${newY} ${newZ}`,
+            to: `${newX} ${endY} ${newZ}`,
+            dur: 4000 + Math.random() * 3000
+          });
+        });
 
-            // zufällige Position & Rotation
-            const pos = randomPosition();
-            const rot = randomRotation();
-            entity.setAttribute('position', pos);
-            entity.setAttribute('rotation', rot);
-
-            // Animation-Mixer für Modelle mit Animationen
-            entity.setAttribute('animation-mixer', '');
-
-            // Schweben auf Y-Achse
-            entity.setAttribute('animation', {
-                property: 'position',
-                dir: 'alternate',
-                dur: 3000 + Math.random() * 2000,
-                easing: 'easeInOutSine',
-                loop: true,
-                to: { x: pos.x, y: pos.y + 0.5, z: pos.z }
-            });
-
-            // Rotation um Y-Achse
-            entity.setAttribute('animation__rotate', {
-                property: 'rotation',
-                to: { x: rot.x, y: rot.y + 360, z: rot.z },
-                dur: 10000 + Math.random() * 5000,
-                loop: true,
-                easing: 'linear'
-            });
-
-            marker.appendChild(entity);
-        }
+        targetObject.appendChild(modelEntity);
+      }
     </script>
 </body>
+
 </html>
